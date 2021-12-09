@@ -19,6 +19,14 @@
 				<li><a href="index.jsp">Home</a></li>
 				<li><a href="listprod.jsp">Browse</a></li>
 				<li><a href="showcart.jsp">Cart</a></li>
+				<%
+				String userName = (String) session.getAttribute("authenticatedUser");
+				if (userName != null){
+					out.println("<li><a href=\"logout.jsp\">Logout</a></li>");
+				}
+				else
+					out.println("<li><a href=\"login.jsp\">Login</a></li>");
+				%>
 			</ul>
 		</header>
 		<div class="summary">
@@ -96,7 +104,6 @@ try
    			keys.next();
    			orderId = keys.getInt(1);
 
-   			out.println("<h3>Your Order Summary</h3><br>");
          	  	out.println("<table style=\" width=\"100%\"><tr><th>Product Id</th><th>Product Name</th><th>Quantity</th><th>Price</th><th>Subtotal</th></tr>");
 
            	double total =0;
@@ -128,7 +135,7 @@ try
    				pstmt.executeUpdate();				
            	}
 			out.println("<tr><td>&nbsp</td></tr>");
-           	out.println("<tr style=\"outline: thin solid\"><td align=\"center\"><b>Order Total</b></td>"
+           	out.println("<tr><b>Order Total</b></td>"
                           	+"<td>"+currFormat.format(total)+"</td></tr>");
            	out.println("</table>");
 
@@ -139,9 +146,9 @@ try
    			pstmt.setInt(2, orderId);			
    			pstmt.executeUpdate();						
 
-   			out.println("<br><h5>Thank you for you order. It will be shipped to you soon.</h5>");
-   			out.println("<h5>Your order reference number is: "+orderId+"</h5>");
-   			out.println("<h5>Shipping to Customer: "+custId+"      Name: "+custName+"</h5>");   			
+   			out.println("<p>Thank you for you order. It will be shipped to you soon.</p>");
+   			out.println("<p>Your order reference number is: "+orderId+"</p>");
+   			out.println("<p>Shipping to Customer: "+custId+"      Name: "+custName+"</p>");   			
    			
    			// Clear session variables (cart)
    			session.setAttribute("productList", null);    

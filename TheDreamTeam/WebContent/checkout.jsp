@@ -12,15 +12,14 @@
 		</ul>
 	</header>
     <div class="checkoutform">
-			<br>
     		<form method="get" action="order.jsp">
-    		<table style="display:inline">
-				<tr><td style="color:white;">Customer ID:</td><td><input type="text" name="customerId" size="20"></td></tr>
-				<tr><td style="color:white;">Password:</td><td><input type="password" name="password" size="20"></td></tr>
+    		<table>
+				<tr><td>Customer ID:</td><td><input type="text" name="customerId" size="20"></td></tr>
+				<tr><td>Password:</td><td><input type="password" name="password" size="20"></td></tr>
 			</table>
 			<br/>
-		<input type="submit" value="Submit">
-		<input type="reset" value="Reset">
+			<input type="submit" value="Submit">
+			<input type="reset" value="Reset">
 		</form>
 	</div>
 </body>

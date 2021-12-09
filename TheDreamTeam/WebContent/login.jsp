@@ -9,8 +9,15 @@
 			<ul>
 				<li><a href="index.jsp">Home</a></li>
 				<li><a href="listprod.jsp">Browse</a></li>
-				<li><a href="login.jsp" class="active">Login</a></li>
 				<li><a href="showcart.jsp">Cart</a></li>
+				<%
+				String userName = (String) session.getAttribute("authenticatedUser");
+				if (userName != null){
+					out.println("<li><a href=\"logout.jsp\">Logout</a></li>");
+				}
+				else
+					out.println("<li><a href=\"login.jsp\">Login</a></li>");
+				%>
 			</ul>
 		</header>
 		<div class='login'>

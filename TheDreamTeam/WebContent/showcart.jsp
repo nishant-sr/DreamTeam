@@ -15,6 +15,14 @@
 			<li><a href="index.jsp">Home</a></li>
 			<li><a href="listprod.jsp">Browse</a></li>
 			<li><a href="showcart.jsp" class="active">Cart</a></li>
+			<%
+				String userName = (String) session.getAttribute("authenticatedUser");
+				if (userName != null){
+					out.println("<li><a href=\"logout.jsp\">Logout</a></li>");
+				}
+				else
+					out.println("<li><a href=\"login.jsp\">Login</a></li>");
+				%>
 		</ul>
 	</header>
 	<div class="main">
@@ -31,7 +39,7 @@ String newqty = request.getParameter("newqty");
 
 // check if shopping cart is empty
 if (productList == null )
-{	out.println("<h3>Your shopping cart is empty!</h3>");
+{	out.println("<h1>Your shopping cart is empty!</h1>");
 	productList = new HashMap<String, ArrayList<Object>>();
 }
 else
@@ -92,7 +100,7 @@ else
 	}
 	out.println("<tr><td>&nbsp</td></tr>");
 	// print out order total
-	out.println("<tr style=\"outline: thin solid\"><td align=\"center\"><b>Order Total</b></td>"
+	out.println("<tr><td align=\"center\"><b>Order Total</b></td>"
 			+"<td>"+currFormat.format(total)+"</td></tr>");
 	out.println("<tr><td>&nbsp</td></tr>");
 	out.println("</table>");

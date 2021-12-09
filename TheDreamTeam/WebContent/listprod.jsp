@@ -16,28 +16,29 @@
 			<li><a href="index.jsp">Home</a></li>
 			<li><a href="listprod.jsp" class="active">Browse</a></li>
 			<li><a href="showcart.jsp">Cart</a></li>
+			<%
+				String userName = (String) session.getAttribute("authenticatedUser");
+				if (userName != null){
+					out.println("<li><a href=\"logout.jsp\">Logout</a></li>");
+				}
+				else
+					out.println("<li><a href=\"login.jsp\">Login</a></li>");
+				%>
 		</ul>
 	</header>
 	<div class="search">
-			<br><br>
 			<form method="get" action="listprod.jsp">
-				<p>
+					<p>FILTERS</p>
 					<select size="1" name="categoryName">
 						<option>All</option>
-						<option>Jerseys</option>
-						<option>Sweaters</option>
-						<option>Pennants</option>
+						<option>NHL</option>
+						<option>NFL</option>
+						<option>MLB</option>
 					</select>
 				<input type="text" name="productName">
-				<input type="submit" value="Submit"><input type="reset" value="Reset">
+				<input class="button" type="submit" value="Submit">
+				<input class="button" type="reset" value="Reset">
 			</form>
-			<%
-			// Colors for different item categories
-			HashMap<String,String> colors = new HashMap<String,String>();		// This may be done dynamically as well, a little tricky...
-			colors.put("Blue Light", "#0000FF");
-			colors.put("UV Protection", "#FF0000");
-			colors.put("Designer", "#000000");
-			%>
 
 <%
 // Get product name to search for
@@ -62,12 +63,11 @@ else if (hasNameParam)
 }
 else if (hasCategoryParam)
 {
-	filter = "<h3>Products in category: '"+category+"'</h3>";
+	filter = "<h3>"+category+" Products</h3>";
 	sql = "SELECT productId, productName, productPrice, categoryName, productImageURL FROM Product P JOIN Category C ON P.categoryId = C.categoryId WHERE categoryName = ?";
 }
 else
 {
-	filter = "<h3>All Products</h3>";
 	sql = "SELECT productId, productName, productPrice, categoryName, productImageURL FROM Product P JOIN Category C ON P.categoryId = C.categoryId";
 }
 
@@ -108,17 +108,13 @@ try ( Connection con = DriverManager.getConnection(url, uid, pw);){
 		
 		out.println("<div class=\"product\">");
 		String imageLoc = rst.getString(5);
-		out.println("<br><br><br><img src=\""+imageLoc+"\" width=300px>");
-		out.println("<br><p class=\"name\"><a href=\"product.jsp?id="+id+"\">" + rst.getString(2) + "</a></p>");
+		out.println("<img src=\""+imageLoc+"\" width=300px>");
+		out.println("<p class=\"name\"><a href=\"product.jsp?id="+id+"\">" + rst.getString(2) + "</a></p>");
 		String itemCategory = rst.getString(4);
-		out.println("<p class=\"category\">" + itemCategory + "</p>");
 		out.println("<p class=\"price\">" + currFormat.format(rst.getDouble(3)) + "</p>");
 		out.println("<p><addcart><a href=\"addcart.jsp?id=" + rst.getInt(1) + "&name=" + rst.getString(2)
-			+ "&price=" + rst.getDouble(3)+"\">Add to Cart</a></addcart></p>");
-		String color = (String) colors.get(itemCategory);
-		if (color == null)
-			color = "#FFFFFF";
-		out.println("</div><br>");
+			+ "&price=" + rst.getDouble(3)+"\">+</a></addcart></p>");
+		out.println("</div>");
 	}
 	out.println("</div>");
 	closeConnection();

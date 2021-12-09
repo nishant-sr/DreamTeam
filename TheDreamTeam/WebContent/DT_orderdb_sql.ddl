@@ -137,14 +137,14 @@ CREATE TABLE review (
         ON UPDATE CASCADE ON DELETE CASCADE
 );
 
-INSERT INTO category(categoryName) VALUES ('Jerseys');
-INSERT INTO category(categoryName) VALUES ('Sweaters');
-INSERT INTO category(categoryName) VALUES ('Pennants');
+INSERT INTO category(categoryName) VALUES ('NHL');
+INSERT INTO category(categoryName) VALUES ('NFL');
+INSERT INTO category(categoryName) VALUES ('MLB');
 
 INSERT product(productName, categoryId, productDesc, productPrice) VALUES ('Flames Jersey Adult', 1, '',18.00);
 INSERT product(productName, categoryId, productDesc, productPrice) VALUES ('Flames Jersey Youth', 1, '',11.00);
-INSERT product(productName, categoryId, productDesc, productPrice) VALUES ('Canucks Jersey Adult', 1, '',18.00);
-INSERT product(productName, categoryId, productDesc, productPrice) VALUES ('Canucks Jersey Youth', 1, '',11.00);
+INSERT product(productName, categoryId, productDesc, productPrice) VALUES ('Patriots Jersey Adult', 2, '',18.00);
+INSERT product(productName, categoryId, productDesc, productPrice) VALUES ('Patriots Jersey Youth', 2, '',11.00);
 
 
 INSERT INTO warehouse(warehouseName) VALUES ('Main warehouse');
