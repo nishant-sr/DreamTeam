@@ -39,7 +39,7 @@
 				<input class="button" type="submit" value="Submit">
 				<input class="button" type="reset" value="Reset">
 			</form>
-
+	<div>
 <%
 // Get product name to search for
 String name = request.getParameter("productName");
@@ -106,7 +106,7 @@ try ( Connection con = DriverManager.getConnection(url, uid, pw);){
 	{
 		int id = rst.getInt(1);
 		
-		out.println("<div class=\"product\">");
+		out.println("<div class=\"product\" data-tilt data-tilt-scale='1.1'>");
 		String imageLoc = rst.getString(5);
 		out.println("<img src=\""+imageLoc+"\" width=300px>");
 		out.println("<p class=\"name\"><a href=\"product.jsp?id="+id+"\">" + rst.getString(2) + "</a></p>");
@@ -117,11 +117,13 @@ try ( Connection con = DriverManager.getConnection(url, uid, pw);){
 		out.println("</div>");
 	}
 	out.println("</div>");
+	out.println("</div>");
 	closeConnection();
 } catch (SQLException ex) {
 	out.println(ex);
 }
 %>
+<script type="text/javascript" src="script/vanilla-tilt.js"></script>
 </body>
 </html>
 

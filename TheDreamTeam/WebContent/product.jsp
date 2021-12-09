@@ -58,14 +58,12 @@ try ( Connection con = DriverManager.getConnection(url, uid, pw);){
 		if (imageLoc != null)
 			out.println("<img src=\""+imageLoc+"\" width=300px>");
 
-		out.println("<br><h4>Product Description</h4>");
+		out.println("<h4>Description:</h4>");
 		out.println("<h5>"+ rst.getString(5) + "</h5>" + "<br>");
-
+		out.println("<p><a href=\"addcart.jsp?id="+prodId+ "&name=" + rst.getString(2)
+								+ "&price=" + rst.getDouble(3)+"\">Add to Cart</a></p>");		
 		out.println("<br>");
-		out.println("<btn2><a href=\"addcart.jsp?id="+prodId+ "&name=" + rst.getString(2)
-								+ "&price=" + rst.getDouble(3)+"\">Add to Cart</a></btn2>");		
-		out.println("<br>");
-		out.println("<btn2><a href=\"listprod.jsp\">Continue Shopping</a></btn2>");
+		out.println("<p><a href=\"listprod.jsp\">Continue Shopping</a></p>");
 	}
 } 
 catch (SQLException ex) {

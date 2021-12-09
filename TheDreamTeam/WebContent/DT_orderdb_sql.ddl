@@ -145,13 +145,21 @@ INSERT product(productName, categoryId, productDesc, productPrice) VALUES ('Flam
 INSERT product(productName, categoryId, productDesc, productPrice) VALUES ('Flames Jersey Youth', 1, '',11.00);
 INSERT product(productName, categoryId, productDesc, productPrice) VALUES ('Patriots Jersey Adult', 2, '',18.00);
 INSERT product(productName, categoryId, productDesc, productPrice) VALUES ('Patriots Jersey Youth', 2, '',11.00);
+INSERT product(productName, categoryId, productDesc, productPrice) VALUES ('Leafs Jersey Adult', 1, '',18.00);
+INSERT product(productName, categoryId, productDesc, productPrice) VALUES ('Leafs Jersey Youth', 1, '',11.00);
+INSERT product(productName, categoryId, productDesc, productPrice) VALUES ('Blue Jays Jersey Adult', 3, '',18.00);
+INSERT product(productName, categoryId, productDesc, productPrice) VALUES ('Blue Jays Jersey Youth', 3, '',11.00);
 
 
 INSERT INTO warehouse(warehouseName) VALUES ('Main warehouse');
-INSERT INTO productInventory(productId, warehouseId, quantity, price) VALUES (1, 1, 5, 18);
-INSERT INTO productInventory(productId, warehouseId, quantity, price) VALUES (2, 1, 10, 19);
-INSERT INTO productInventory(productId, warehouseId, quantity, price) VALUES (3, 1, 3, 10);
+INSERT INTO productInventory(productId, warehouseId, quantity, price) VALUES (1, 1, 100, 18);
+INSERT INTO productInventory(productId, warehouseId, quantity, price) VALUES (2, 1, 100, 19);
+INSERT INTO productInventory(productId, warehouseId, quantity, price) VALUES (3, 1, 100, 10);
 INSERT INTO productInventory(productId, warehouseId, quantity, price) VALUES (4, 1, 2, 22);
+INSERT INTO productInventory(productId, warehouseId, quantity, price) VALUES (5, 1, 100, 10);
+INSERT INTO productInventory(productId, warehouseId, quantity, price) VALUES (6, 1, 2, 22);
+INSERT INTO productInventory(productId, warehouseId, quantity, price) VALUES (7, 1, 100, 10);
+INSERT INTO productInventory(productId, warehouseId, quantity, price) VALUES (8, 1, 2, 22);
 
 INSERT INTO customer (firstName, lastName, email, phonenum, address, city, state, postalCode, country, userid, password) VALUES ('Arnold', 'Anderson', 'a.anderson@gmail.com', '204-111-2222', '103 AnyWhere Street', 'Winnipeg', 'MB', 'R3X 45T', 'Canada', 'arnold' , 'test');
 INSERT INTO customer (firstName, lastName, email, phonenum, address, city, state, postalCode, country, userid, password) VALUES ('Bobby', 'Brown', 'bobby.brown@hotmail.ca', '572-342-8911', '222 Bush Avenue', 'Boston', 'MA', '22222', 'United States', 'bobby' , 'bobby');
@@ -164,3 +172,7 @@ UPDATE Product SET productImageURL = 'img/1.png' WHERE ProductId = 1;
 UPDATE Product SET productImageURL = 'img/1.png' WHERE ProductId = 2;
 UPDATE Product SET productImageURL = 'img/2.jpg' WHERE ProductId = 3;
 UPDATE Product SET productImageURL = 'img/2.jpg' WHERE ProductId = 4;
+UPDATE Product SET productImageURL = 'img/3.png' WHERE ProductId = 5;
+UPDATE Product SET productImageURL = 'img/3.png' WHERE ProductId = 6;
+UPDATE Product SET productImageURL = 'img/4.jfif' WHERE ProductId = 7;
+UPDATE Product SET productImageURL = 'img/4.jfif' WHERE ProductId = 8;
