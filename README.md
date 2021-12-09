@@ -1,2 +1,2 @@
 # DreamTeam
-![alt text](dreamteam.gif)
+![alt text](mainpage.gif)
