@@ -1,2 +1,3 @@
 # DreamTeam
-![alt text](mainpage.gif)
+![](mainpage.gif)
+![](products.gif)
