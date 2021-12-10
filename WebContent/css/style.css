@@ -1,0 +1,262 @@
+/* 
+free video src: https://www.pexels.com/video/aerial-view-on-city-during-dawn-9722139/
+*/
+*{
+    padding:0;
+    margin:0;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow', sans-serif;
+    text-decoration: none;
+}
+
+@keyframes highlight{
+    0%{
+        border: 5px solid rgb(47, 213, 255);
+    }
+
+    33%{
+        border: 5px solid rgb(150, 58, 255);
+    }
+
+    66% , 90%{
+        border: 5px solid rgb(0, 255, 136);
+    }
+    100%{
+        border: 5px solid rgb(47, 213, 255);
+    }
+}
+
+
+body{
+    background-repeat: no-repeat;
+}
+
+header{
+    background-color: black;
+    padding: 1em;
+}
+
+header ul{
+    list-style: none;
+    display: flex;
+    justify-content: space-around;
+}
+
+header ul li a, .main p a, .productInfo a, .product a{
+    color: black;
+    text-decoration: none;
+}
+
+header ul li a{
+    color: white;
+}
+
+header ul li a:hover{
+    color: silver;
+}
+
+h1, .summary h3{
+    text-align: center;
+    color : black;
+    font-size: 5vh;
+    padding: 6em;
+}
+
+
+h1{
+    text-align: left;
+    color: white;
+    font-style: italic;
+    font-size: 15vh;
+    padding: 0;
+    padding-top:2em;
+}
+
+header, .title{
+    z-index: 10;
+    position: relative;
+}
+
+video{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.title{
+    display: flex;
+    flex-direction: column;
+    gap: 2em;
+    padding-left: 25%;
+}
+
+.title p a{
+    color: white;
+    padding: 0.5em 1em;
+    font-size: 4vh;
+    background-color: black;
+}
+
+.productInfo{
+    padding: 2em;
+}
+
+.products{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1em;
+    padding: 1em;
+}
+
+.product img{
+    border-radius: 5%;
+}
+
+.product{
+    padding:1em;
+    border-radius: 5%;
+}
+
+.product:hover{
+    animation: highlight 2s infinite;
+}
+
+.product a, .product p, .summary p, .productInfo{
+    font-size: larger;
+    color: black;
+}
+
+.search{
+    display: flex;
+    padding: 2em;
+    gap:13%;
+}
+
+.search form{
+    display: flex;
+    flex-direction: column;
+    gap:1em;
+}
+
+.search form p{
+    color: black;
+}
+
+.main .main2 , .login form, .product ,.checkoutform , .summary, .productInfo{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.login form{
+    padding:3em;
+}
+
+.login form table{
+    padding:2em;
+    animation:highlight 2s infinite;
+}
+
+.login form table tbody tr td input,.login form table tbody tr td ,.login form input{
+    font-size: 1.3em;
+}
+
+.summary{
+    padding: 1em;
+    gap:1em;
+}
+
+.summary table tbody tr td{
+    color:greenyellow;
+}
+
+.summary table{
+    padding:2em;
+    border: 5px solid greenyellow;
+    border-radius: 5%;
+}
+
+input, select{
+    background-color: transparent;
+    color: black;
+    border: 2px solid black;
+    border-radius: 15%;
+}
+
+select{
+    border: none;
+}
+
+.button{
+    background-color: transparent;
+    color: black
+    border: none;
+}
+
+.main{
+    padding:7em;
+}
+
+.main .main2 p a,th, td{
+    color: black;
+}
+
+.main .main2 {
+    padding:1em;
+}
+
+.main .main2 table{
+    font-size: 1.5em;
+    padding:2em;
+    animation: highlight 2s infinite;
+}
+
+.main .main2 table tbody tr td .remove a{
+    color: red;
+    margin:1em;
+    padding:1em;
+}
+
+.main .main2 table tbody tr td .remove a:hover{
+    border: 1px solid red;
+    border-radius: 80%;
+}
+
+.main .main2 .checkout{
+    padding:1em;
+}
+
+.checkoutform form{
+    padding: 4em;
+    display: flex;
+    flex-direction: column;
+    gap:0.5em;
+}
+
+.custInfo{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding:2em;
+    font-size: 1.6em;
+}
+.custInfo table tbody{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.custInfo table tbody tr{
+    display: flex;
+    gap:1em;
+}
+
+.custInfo table tbody th{
+    color: blue;
+}
+
+.custInfo table tbody td{
+    color: rgb(52, 147, 255);
+}
